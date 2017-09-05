@@ -10,6 +10,14 @@
                http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
                http://www.mulesoft.org/schema/mule/ee/domain http://www.mulesoft.org/schema/mule/ee/domain/current/mule-domain-ee.xsd">
 
-    <!-- configure here resource to be shared within the domain -->
+    <!-- configure here resource to be shared within the domain -->    
+   
+       <spring:beans>
+        <spring:bean id="propertyConfigurer" class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">
+            <spring:property name="location" value="test_${MULE_ENV}.properties"/>
+            <spring:property name="ignoreUnresolvablePlaceholders" value="true"/>
+            <spring:property name="ignoreResourceNotFound" value="true"/>
+        </spring:bean>
+    </spring:beans>
 
 </domain:mule-domain>
