@@ -13,7 +13,9 @@ This domain has a contains the following:
  This project contains a simple flow that listens on port 8081 <a href="http://localhost:8081/test">http://localhost:8081/test</a> and returns the current log level and logs both log levels in the property file for dev.  The following edits have been made for this:
  * src/main/resources/log4j2.xml - line 29 changed to \<AsyncRoot level="${simple_log4j_example_log_level}"/>
  
- ## Putting it all together
+ ## Putting the simple_log4j_example and simple_domain together
 In the run configuration or the command line you will need to specifiy -DMULE_ENV=dev or -DMULE_ENV=prod in the VM arguments which will tell the simple_domain which file to load the properties from.  The simple_log4j_examples project then will use the properties to set the current log4j setting and update the flow with the correct values.  I hope this helps keep sensitive information out of proudction logs and allows for an easy way to manage the log4j configuration from dev to prod.
  
  
+## sample_api
+This mulesoft project has a simple contact api with one field that mule hands of to a Java controller to process the request.  Also a Groovy component is added to throw the non found exception to force Mulesoft into the API exception handling (Not sure if this is the best way to do it, but it works)
