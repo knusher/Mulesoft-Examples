@@ -1,0 +1,22 @@
+#%RAML 0.8
+title: Sample Contact API
+baseUri: http://api.sample.com/{version}
+version: v1
+
+/name:
+  get:
+  /{name}:
+    get:
+      description: This is a sample Contact API that calls a java component to get data
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                  "data": {
+                    "CONTANCTID": "384759"
+                  "success": true,
+                  "status": 200
+                }
+  
